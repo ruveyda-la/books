@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container" style="display:flex;">
+        <div class="col-sm-5">
+            <h3>New Book</h3>
+            <div class="p-3 border bg-light">
+                <form class="form-group"action="/books/new" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" name="title"><br>
+                    <label for="pages">Number of Pages:</label>
+                    <input type="text" name="num_of_pages"><br>
+                    <button type="submit">Create</button>
+                </form>
+            </div>
+            <a href="/authors">Home</a>
+        </div>
+        <div class="col-sm-5 offset-2">
+            <h3>All Books</h3>
+            <div class="p-3 border bg-light">
+
+                {% for book in books %}
+
+                <a href="/books/{{book.id}}">{{book.title}}</a><br>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
